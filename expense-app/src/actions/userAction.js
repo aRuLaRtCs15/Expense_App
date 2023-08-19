@@ -23,7 +23,7 @@ export const asyncCreateUser = (formData, props, reset) => {
                 }
                 else {
                     Swal.fire('Enter valid details')
-                    props.history.push('./register')
+                    props.history.push('./')
                     reset()
                 }
             })
@@ -42,6 +42,7 @@ export const getLog = (data) => {
 
 
 export const asyncGetLog = (data) => {
+
     return (dispatch) => {
         axios.get('/api/users', { headers: { 'authorization': data } })
             .then((response) => {

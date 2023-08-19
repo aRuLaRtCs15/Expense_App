@@ -1,4 +1,5 @@
 import NavBar from "./components/NavBar"
+import './App.css'  
 
 
 const App=(props)=> {

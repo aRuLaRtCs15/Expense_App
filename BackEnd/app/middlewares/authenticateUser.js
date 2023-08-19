@@ -5,7 +5,7 @@ const authenticateUser = async (req, res, next) => {
     const token = req.headers.authorization
     
     if (token) {
-        const token1 = token.split(' ')[1]
+        const token1 = token
         try {
             const tokenData = jwt.verify(token1, process.env.JWT_EXPENSE_TOKEN)
             req.user = {
