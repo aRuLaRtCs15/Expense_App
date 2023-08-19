@@ -36,3 +36,22 @@
     transform: rotate(360deg);
   }
 }
+
+.containerRegister{
+  padding-top:30px;
+}
+
+.register{
+  border-radius: 10px;
+ background-color: aqua;
+
+}
+.register1{
+  background-color:ghostwhite;
+
+}
+.horizontal{
+  color:blue;
+  height: 15px;
+
+}

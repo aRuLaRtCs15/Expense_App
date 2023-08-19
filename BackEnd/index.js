@@ -21,7 +21,7 @@ app.use(express.json())
 
 
 //user(register-login-delte)
-app.get('/api/users',authenticateUser,userCltr.show)
+app.get('/api/users',userCltr.show)
 app.post('/api/users', userCltr.register)
 app.post('/api/users/login', userCltr.login)
 app.delete('/api/users/delete/:id',authenticateUser,userCltr.destroy)

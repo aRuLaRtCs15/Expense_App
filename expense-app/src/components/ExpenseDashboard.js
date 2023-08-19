@@ -20,7 +20,8 @@ const ExpenseDashboard=(props)=>{
         {result.length > 0 &&
         <div>
          <h3 > Welcome - {result[0].username} </h3>
-         <h3 > Budget - {result[0].budget}</h3>
+         <h3 > Your Budget - {result[0].budget}</h3>
+         <hr className="horizontal"/>  
          <CategoriesList/>
          </div>
         }

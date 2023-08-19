@@ -1,6 +1,7 @@
 import { Link, Route, withRouter } from 'react-router-dom'
 import { useEffect, useState } from 'react'
-import { useSelector } from 'react-redux'
+import { useSelector,useDispatch } from 'react-redux'
+import { asyncGetLog } from '../actions/userAction'
 import Swal from 'sweetalert2'
 import Home from './Home'
 import Register from './Register'
@@ -11,13 +12,20 @@ import ChartsDisplay from './ChartsDisplay'
 import DeleteAccount from './DeleteAccount'
 
 const NavBar = (props) => {
+   const dispatch=useDispatch()
    const [isLoggedIn, setIsLoggedIn] = useState(false)
+   
+  useEffect(()=>{
+   if(localStorage.getItem('token'))
+   dispatch(asyncGetLog())
+  },[dispatch])
 
    const user=useSelector((state)=>{
       return state.user.userDetails
    })
 
    useEffect(() => {
+
       if (user[0]?.hasOwnProperty('username')){
          setIsLoggedIn(true)}
    }, [user])
@@ -33,7 +41,7 @@ const NavBar = (props) => {
                   <div className="collapse navbar-collapse" id="navbarNavDropdown">
                      <ul className="navbar-nav mr-auto">
                         <li className="nav-item active">
-                           <Link className="nav-link" to='/register'> Register</Link>
+                           <Link className="nav-link" to='/'> Register</Link>
                         </li>
                         <li className="nav-item active">
                            <Link className="nav-link" to='/login'> LogIn </Link>
@@ -79,14 +87,14 @@ const NavBar = (props) => {
             </div>}
 
       {!isLoggedIn && <div>
-         <Route path='/register' render={(props) => {
+         <Route path='/' render={(props) => {
             return <Register
-               {...props} />
-         }} />
+               {...props}  />
+         }} exact={true} />
          <Route path='/login' render={(props) => {
             return <LogIn
                {...props} setIsLoggedIn={setIsLoggedIn} />
-         }} />
+         }}  />
              
       </div>
       }

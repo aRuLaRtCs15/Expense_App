@@ -34,7 +34,7 @@ userCltr.login = async (req, res) => {
             if (result) {
                 const tokenData = { id: user._id, email: user.email, username: user.username }
                 const token = jwt.sign(tokenData, process.env.JWT_EXPENSE_TOKEN)
-                res.json(`Bearer ${token}`)
+                res.json(`${token}`)
             } else {
                 res.json({error:'Invalid Email/Password'})
             }

@@ -28,8 +28,13 @@ const LogIn = (props) => {
 
     }
 
-    return (<div className='container-fluid'>
+    return (<div className='containerRegister'>
+        <div className='row'>
         <div className='col-md-4'></div>
+        <div className='col-md-4'>
+            <div className='card shadow'>
+            <div className='register1'>
+            <div className='card-body'>
         <center><h2> Log-In Form  </h2></center>
         <form onSubmit={handleLogIn}>
 
@@ -51,9 +56,15 @@ const LogIn = (props) => {
 
             <input type='submit'
                 value='login'
-                className='btn btn-primary'
+                className='register'
                  />
         </form>
+        </div>
+        </div>
+        </div>
+        </div>
+        <div className='col-md-4'></div>
+        </div>
     </div>)
 }
 
